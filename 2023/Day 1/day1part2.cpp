@@ -37,7 +37,7 @@ int main()
         // (digit, idx)
         std::vector<std::pair<size_t, size_t>> digit_position;
 
-        std::cout << line << '\n';
+        //std::cout << line << '\n';
         for (int i = 0; i < 18; ++i)
         {
             const auto pos = find_all_indices_of_substring(line, string_digits[i]);
