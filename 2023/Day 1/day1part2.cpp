@@ -27,7 +27,7 @@ int main()
 
     std::ifstream file("input.txt");
 
-    int sum = 0;
+    size_t sum = 0;
 
     while (!file.eof())
     {
@@ -48,11 +48,11 @@ int main()
             }
         }
 
-        int first_index = digit_position[0].second;
-        int first_digit = digit_position[0].first;
+        size_t first_index = digit_position[0].second;
+        size_t first_digit = digit_position[0].first;
 
-        int last_index = digit_position[0].second;
-        int last_digit = digit_position[0].first;
+        size_t last_index = digit_position[0].second;
+        size_t last_digit = digit_position[0].first;
 
         for (const auto &i : digit_position)
         {
@@ -70,7 +70,7 @@ int main()
             //std::cout << "(" << i.first << " " << i.second << ") ";
         }
 
-        int num = first_digit * 10 + last_digit;
+        size_t num = first_digit * 10 + last_digit;
         //std::cout << num << '\n';
         sum += num;
     } 
