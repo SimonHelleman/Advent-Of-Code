@@ -4,8 +4,7 @@
 #include <iostream>
 #include <fstream>
 
-
-std::vector<size_t> find_all_instances_of_substring(const std::string &str, const std::string &sub)
+std::vector<size_t> find_all_indices_of_substring(const std::string &str, const std::string &sub)
 {
     std::vector<size_t> ret;
     size_t pos = str.find(sub, 0);
@@ -41,7 +40,7 @@ int main()
         std::cout << line << '\n';
         for (int i = 0; i < 18; ++i)
         {
-            const auto pos = find_all_instances_of_substring(line, string_digits[i]);
+            const auto pos = find_all_indices_of_substring(line, string_digits[i]);
 
             for (const auto &index : pos)
             {
