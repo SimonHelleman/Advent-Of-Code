@@ -32,8 +32,7 @@ int main(void)
 
         CubeSet max = { 0, 0, 0 };
 
-        bool possible = true;
-        while (round_token != NULL && possible)
+        while (round_token != NULL)
         {
             CubeSet set = { 0, 0, 0 };
 
