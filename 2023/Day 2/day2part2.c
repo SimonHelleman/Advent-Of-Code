@@ -24,11 +24,11 @@ int main(void)
 
         char *round_state;
         const char *round_delim = ":;";
-        char *round_token = strtok_r(line, round_delim, &round_state);
+        char *round_token = strtok_s(line, round_delim, &round_state);
 
         // First token is always game number
         // Already have it so just move on.
-        round_token = strtok_r(NULL, round_delim, &round_state);
+        round_token = strtok_s(NULL, round_delim, &round_state);
 
         CubeSet max = { 0, 0, 0 };
 
@@ -40,7 +40,7 @@ int main(void)
             strncpy(round, round_token, LINE_SZ);
             
             char *colour_state;
-            char *colour_token = strtok_r(round_token, ",", &colour_state);
+            char *colour_token = strtok_s(round_token, ",", &colour_state);
 
             while (colour_token != NULL)
             {
@@ -58,10 +58,10 @@ int main(void)
                 {
                     sscanf(colour_token, "%d", &set.blue);
                 }
-                colour_token = strtok_r(NULL, ",", &colour_state);
+                colour_token = strtok_s(NULL, ",", &colour_state);
             }
 
-            round_token = strtok_r(NULL, round_delim, &round_state);
+            round_token = strtok_s(NULL, round_delim, &round_state);
 
             max.red = set.red > max.red ? set.red : max.red;
             max.green = set.green > max.green ? set.green : max.green;
