@@ -3,6 +3,11 @@
 #include <stdio.h>
 #define LINE_SZ 512
 
+#if defined(_WIN32) || defined(_WIN64)
+// sigh.....
+#define strtok_r strtok_s
+#endif
+
 typedef struct
 {
     int red;
@@ -26,12 +31,12 @@ int main(void)
 
         char *round_state;
         const char *round_delim = ":;";
-        char *round_token = strtok_s(line, round_delim, &round_state);
+        char *round_token = strtok_r(line, round_delim, &round_state);
 
 
         // First token is always game number
         // Already have it so just move on.
-        round_token = strtok_s(NULL, round_delim, &round_state);
+        round_token = strtok_r(NULL, round_delim, &round_state);
 
         //printf("Game %d:\n", game_number);
 
@@ -45,7 +50,7 @@ int main(void)
             strncpy(round, round_token, LINE_SZ);
             
             char *colour_state;
-            char *colour_token = strtok_s(round_token, ",", &colour_state);
+            char *colour_token = strtok_r(round_token, ",", &colour_state);
 
             while (colour_token != NULL)
             {
@@ -63,10 +68,10 @@ int main(void)
                 {
                     sscanf(colour_token, "%d", &set.blue);
                 }
-                colour_token = strtok_s(NULL, ",", &colour_state);
+                colour_token = strtok_r(NULL, ",", &colour_state);
             }
 
-            round_token = strtok_s(NULL, round_delim, &round_state);
+            round_token = strtok_r(NULL, round_delim, &round_state);
             //printf("    r=%d g=%d b=%d\n", set.red, set.green, set.blue);
 
             if (set.red > 12 || set.green > 13 || set.blue > 14)
