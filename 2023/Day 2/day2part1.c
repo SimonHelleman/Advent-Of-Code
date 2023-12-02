@@ -45,9 +45,6 @@ int main(void)
         {
             CubeSet set = { 0, 0, 0 };
             //printf("   %s\n", round_token);
-
-            char round[LINE_SZ]; 
-            strncpy(round, round_token, LINE_SZ);
             
             char *colour_state;
             char *colour_token = strtok_r(round_token, ",", &colour_state);
