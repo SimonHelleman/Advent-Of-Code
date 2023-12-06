@@ -3,6 +3,9 @@
         "*.embeddedhtml": "html",
         "fstream": "cpp",
         "istream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "stdbool.h": "c",
+        "stdint.h": "c",
+        "xlocale": "c"
     }
 }

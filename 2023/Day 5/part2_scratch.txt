@@ -1,0 +1,42 @@
+79    14    55    13
+
+src = 50
+dest = 52
+range = 48
+
+Part 1
+is the seed in the range of src
+if (seed >= src)
+{
+    if (seed <= src + range)
+    {
+        int pos_in_range = seed - src;
+        int mapped_val = dest + pos_in_range;
+    }
+}
+
+
+Part 2
+src = 73               73, 73, 75, 76, 77, 78.
+seed = {72, 5} => [72, 73, 74, 75, 76]
+
+or...
+
+src = 73   70, 71, 72, 73
+seed = {72, 5} => [72, 73, 74, 75, 76]
+
+
+is the src set contained within the seed set??? => Set intersection
+
+intersect_start = max(src.start, seed.start)
+intersect_end = min(src.start + src.range, seed.start + seed.range)
+
+This gives me an array of values that need to be mapped... but it would still be over 100GB :(
+
+
+73 74 75 76 77 78
+41 12 49 66 86 91
+24 64 34 98 77 55
+
+instead of mapping each seed at each stage track ONE seed at a time through each stage and record the value at the last.
+When you go through the next seed see if the final value is smaller than the previous, you end up with the smallest.
