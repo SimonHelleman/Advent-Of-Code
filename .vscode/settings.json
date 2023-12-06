@@ -6,6 +6,7 @@
         "string": "cpp",
         "stdbool.h": "c",
         "stdint.h": "c",
-        "xlocale": "c"
+        "xlocale": "c",
+        "cmath": "c"
     }
 }
